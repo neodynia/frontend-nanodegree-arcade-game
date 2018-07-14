@@ -9,12 +9,12 @@ let percentScore;
 class Enemy {
   constructor(x, y, speed) {
     //Place at random x position within allowed width
-    this.x = Math.random() * -500;
+    this.x = Math.random() * - 500;
     //Use rows to randomly place enemies across the three rows permitted for enemies
     this.y = rows[Math.floor(Math.random() * rows.length)];
     //Randomize the speed of the enemies
     this.speed = Math.random() * 400 + 100;
-    //Enemy image 
+    //Enemy image
     this.sprite = 'images/enemy-bug.png';
   }
 
@@ -25,7 +25,7 @@ class Enemy {
     }
     //This is a scaling factor to normalize speed distribution across different browsers and operating systems.
     this.x += this.speed * dt;
-    //Resets enemy positions after a win has occured 
+    //Resets enemy positions after a win has occured
     if (this.x > 505) {
       this.x = Math.random() * -400;
       this.y = rows[Math.floor(Math.random() * rows.length)];
@@ -41,13 +41,13 @@ class Enemy {
 /*Player Class Construction*/
 class Player {
   constructor(x, y) {
-    //Places player at starting position upon instantiation 
+    //Places player at starting position upon instantiation
     this.x = 101 * 2;
     this.y = 83 * 5 - 10;
     this.sprite = 'images/char-boy.png';
   }
 
-  //Updates the x,y position of the player 
+  //Updates the x,y position of the player
   update(dt) {
     this.x = this.x;
     this.y = this.y;
@@ -67,11 +67,11 @@ class Player {
     playCount += 1;
     //Calculate a success score which is just a percentage calculated from the number of wins divided by the number of plays, multiplied by 100, and rounded to nearest whole number.
     percentScore = Math.round((winCount / playCount) * 100);
-    //Inserts updates score values into DOM 
+    //Inserts updates score values into DOM
     $('#td1').html(winCount);
     $('#td2').html(playCount);
     $('#td3').html(percentScore + ' %');
-    //Reset the game 
+    //Reset the game
     this.reset();
   }
 
@@ -92,7 +92,7 @@ class Player {
     this.y = 83 * 5 - 10;
   }
 
-  //Establishes the movement that is allowed by the player sprite.  
+  //Establishes the movement that is allowed by the player sprite.
   handleInput(allowedKeys) {
     switch (allowedKeys) {
       //Establishes a movement of one unit to the left and disallows the player from moving outside the boundries of the canvas.
